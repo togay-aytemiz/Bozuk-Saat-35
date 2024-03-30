@@ -22,8 +22,12 @@ export default function Clock(props) {
   /* ------------- Kodunuzu aşağıya yazın ---------------------------------------*/
 
   useEffect(() => {
-    setTime(getTime()); // Zaman değiştiğinde her seferinde zamanı güncelliyoruz.
-  }, [time]);
+    const interval = setInterval(() => {
+      setTime(getTime);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   /* ------------- Kodunuzu yukarıya yazın -------------------------------------*/
 
